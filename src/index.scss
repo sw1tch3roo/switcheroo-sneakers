@@ -6,6 +6,10 @@ body {
   background-color: #f4ecfe;
 }
 
+* {
+  font-family: "Inter", sans-serif;
+}
+
 .wrapper {
   background: #ffffff;
   box-shadow: 0px 10px 20px rgba($color: #000000, $alpha: 0.04);
@@ -60,6 +64,11 @@ header {
   h1 {
     margin: 0;
   }
+
+  .sneakers {
+    display: flex;
+    overflow: auto;
+  }
 }
 
 .card {
@@ -68,7 +77,18 @@ header {
   padding: 20px;
   width: 200px;
   border-radius: 40px;
-  margin-right: 50px;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    // когда наводим на блок
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .favorite {
+    position: absolute;
+    cursor: pointer;
+  }
 
   span {
     opacity: 0.5;
@@ -97,4 +117,142 @@ header {
 
 .sneakers {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-block {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  padding: 0 15px;
+  align-items: center;
+
+  input {
+    border: none;
+    font-size: 14px;
+    padding: 11px;
+    width: 200px;
+  }
+}
+
+.mainShadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.drawer {
+  position: absolute;
+  width: 420px;
+  height: 100%;
+  right: 0;
+  background: #ffffff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+
+  .items {
+    overflow: auto;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.basketTotalBlock {
+  ul {
+    margin-bottom: 30px !important;
+
+    li {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 20px;
+
+      div {
+        flex: 1;
+        height: 1;
+        border-bottom: 1px dashed #dfdfdf;
+        position: relative;
+        top: -4px;
+        margin: 0 7px;
+      }
+    }
+  }
+
+  .greenButton {
+    position: relative; // может быть только в пределах кнопки (стрелка)
+
+    &:hover {
+      img {
+        transform: translateX(5px);
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 30px;
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+}
+
+.greenButton {
+  width: 100%;
+  height: 40px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+
+  &:hover {
+    background: lighten($color: #9dd558, $amount: 5%);
+  }
+
+  &:active {
+    background: darken($color: #9dd558, $amount: 5%);
+  }
+}
+
+.basketItem {
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+
+  .basketItemImg {
+    height: 125px;
+    width: 125px;
+    background-size: contain;
+    background-position: 0 -10px;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  b {
+    font-size: 14px;
+  }
+
+  .basketRemove {
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
