@@ -1,4 +1,5 @@
-import BasketDrawer from "./components/basketDrawer/basketDrawer";
+import { useState } from "react";
+import BasketDrawer from "./components/basketDrawer/BasketDrawer";
 import Header from "./components/header/Header";
 import SneakersCard from "./components/sneakersCard/SneakersCard";
 
