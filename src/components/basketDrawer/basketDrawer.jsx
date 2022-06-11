@@ -2,7 +2,7 @@ import React from "react";
 
 const BasketDrawer = () => {
   return (
-    <div className="mainShadow">
+    <div style={{ display: "none" }} className="mainShadow">
       <div className="drawer">
         <h2 className="d-flex justify-between mb-30">
           Basket{" "}

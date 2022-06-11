@@ -1,19 +1,22 @@
 import React from "react";
+import styles from "./SneakersCard.module.scss";
 
-const SneakersCard = () => {
+const SneakersCard = (props) => {
+  const onPlusClick = () => alert("Вы добавили товар в корзину");
+
   return (
-    <div className="card">
-      <div className="favorite">
+    <div className={styles.card}>
+      <div className={styles.favorite}>
         <img src="/img/heartUnliked.svg" alt="Unliked" />
       </div>
-      <img width={150} height={150} src="/img/sneakers/asics.jpeg" alt="" />
-      <h5>Men's shoes Asics Gel Kayano</h5>
+      <img width={150} height={150} src={props.sneakersImage} alt="" />
+      <h5>{props.title}</h5>
       <div className="d-flex justify-between align-center">
         <div className="d-flex flex-column">
           <span>Price: </span>
-          <b>12 999 rub.</b>
+          <b>{props.price} rub.</b>
         </div>
-        <button className="button">
+        <button className="button" onClick={onPlusClick}>
           <img width={20} height={20} src="/img/plus.png" alt="Plus" />
         </button>
       </div>
