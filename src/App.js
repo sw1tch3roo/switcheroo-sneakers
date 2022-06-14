@@ -3,35 +3,19 @@ import BasketDrawer from "./components/basketDrawer/BasketDrawer";
 import Header from "./components/header/Header";
 import SneakersCard from "./components/sneakersCard/SneakersCard";
 
-const sneakersArray = [
-  {
-    title: "Men's shoes Asics Gel Kayano",
-    price: 12999,
-    sneakersImage: "/img/sneakers/asics.jpeg",
-  },
-  {
-    title: "Men's shoes Air Jordan 1 Mid",
-    price: 32999,
-    sneakersImage: "/img/sneakers/jordan.jpg",
-  },
-  {
-    title: "Men's shoes Nike Blazer Mid'077",
-    price: 7999,
-    sneakersImage: "/img/sneakers/blazer.jpg",
-  },
-  {
-    title: "Men's shoes Nike Dunk Low Scrap Sea Glass",
-    price: 13999,
-    sneakersImage: "/img/sneakers/dunk.jpeg",
-  },
-];
-
 function App() {
+  const [items, setItems] = useState([]);
+  const [basketOpened, setBasketOpened] = useState(false); // открыта ли корзина
+
   return (
     <div className="wrapper clear">
-      <BasketDrawer />
-      <Header />
-      <div className="content">
+      {basketOpened && <BasketDrawer onClose={() => setBasketOpened(false)} />}
+      {/* если первое значение false, выполнится второе */}
+      {/* {basketOpened ? (
+        <BasketDrawer onClose={() => setBasketOpened(false)} />
+      ) : null} */}
+      <Header onClickBasket={() => setBasketOpened(true)} />
+      <div className="content p-40">
         {/* тут надпись 'все кроссовки' и поиск */}
         <div className="d-flex align-center justify-between">
           <h1>All shoes</h1>
@@ -41,7 +25,7 @@ function App() {
           </div>
         </div>
         <div className="sneakers">
-          {sneakersArray.map((value, key) => {
+          {items.map((value, key) => {
             return (
               <SneakersCard
                 title={value.title}

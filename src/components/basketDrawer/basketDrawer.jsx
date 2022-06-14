@@ -1,8 +1,8 @@
 import React from "react";
 
-const BasketDrawer = () => {
+const BasketDrawer = (props) => {
   return (
-    <div style={{ display: "none" }} className="mainShadow">
+    <div className="mainShadow">
       <div className="drawer">
         <h2 className="d-flex justify-between mb-30">
           Basket{" "}
@@ -11,7 +11,8 @@ const BasketDrawer = () => {
             width={30}
             height={30}
             src="/img/cancel.svg"
-            alt="Remove"
+            alt="Close"
+            onClick={props.onClose}
           />
         </h2>
         <div className="items">
